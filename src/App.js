@@ -1,65 +1,31 @@
 import './App.css';
-import Countries from './components/Countries/Countries';
+
 
 
 function App() {
   return (
     <div className="App">
-      <Countries></Countries>
+    <District name='Khulna' speciality='Shundorbon'></District>
+    <District></District>
+    <District></District>
     </div>
   );
 }
+const districtStyle={
+  border : '2px solid black',
+  borderRadius : '100px', 
+  backgroundColor : 'yellow',
+  margin : '20px',
+  padding : '20px'
+}
+function District(props){
+  return (
+    <div style={districtStyle}>
+      <h2>Name: {props.name}</h2>
+      <p>Speciality: {props.speciality}</p>
+    </div>
+  )
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function LoadCountries(){
-//   const [countries,setCountries] = useState([]);
-//   useEffect(()=>{
-//     fetch('https://restcountries.com/v3.1/all')
-//     .then(res => res.json())
-//     .then(data => setCountries(data))
-//   },[])
-//   return (
-//     <div>
-//       <h1>Visiting Every Country </h1>
-//       <p>{countries.length}</p>
-//       {
-//         countries.map(country => <Country name={country.name.common}></Country>)
-//       }
-//     </div>
-//   )
-// }
-
-// function Country(props){
-// return(
-//   <div>
-//     <h2>Name : {props.name}</h2>
-
-//   </div>
-// )
-// }
 
 export default App;
