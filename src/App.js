@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 
@@ -6,12 +6,31 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <LoadPosts></LoadPosts>
     <District name='Khulna' speciality='Shundorbon'></District>
     <District></District>
     <District></District>
     </div>
   );
 }
+
+function LoadPosts(){
+  const [posts,setPosts] = useState([]);
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res => res.json())
+    .then(data => setPosts(data))
+  },[])
+  return (
+    <div>
+      <h1>Posts : {posts.length}</h1>
+      {
+        posts.map(post => <p>{post.title}</p>)
+      }
+    </div>
+  )
+}
+
 const districtStyle={
   border : '2px solid black',
   borderRadius : '100px', 
