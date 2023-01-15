@@ -58,9 +58,4 @@ function District(props){
   )
 }
 
-t
-a
-h
-j
-<i>b</i>
 export default App;
